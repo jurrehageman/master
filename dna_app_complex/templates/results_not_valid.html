@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2>{{ the_title }}</h2>
+
+<p>You submitted the following data:</p>
+<table>
+<tr><td>DNA sequence (5'->3'):</td><td>{{ the_dna_up }}</td></tr>
+</table>
+
+<h3>Warning! there appear to be invalid characters in your sequence</h3>
+
+
+{% endblock %}

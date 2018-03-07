@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2>{{ the_title }}</h2>
+
+<p>You submitted the following data:</p>
+<table>
+<tr><td>DNA sequence (5'->3'):</td><td>{{ the_dna_up }}</td></tr>
+</table>
+
+<p>When "{{ the_dna_up }}" is manipulated, the following results are returned:</p>
+<table>
+    <tr><td>DNA sequence (5'->3'):</td><td>{{ the_dna_up }}</td></tr>
+    <tr><td>DNA sequence reversed (3'->5'):</td><td>{{ the_dna_rev }}</td></tr>
+    <tr><td>DNA sequence complementary (3'->5'):</td><td>{{ the_dna_comp }}</td></tr>
+    <tr><td>DNA sequence reverse complementary (5'->3'):</td><td>{{ the_dna_rev_comp }}</td></tr>
+    <tr><td>DNA sequence as RNA (5'->3'):</td><td>{{ the_rna }}</td></tr>
+
+</table>
+
+{% endblock %}
