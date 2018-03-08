@@ -1,3 +1,5 @@
+import codon_table
+
 class DNA:
     """This class manipulates DNA sequences"""
     #class variables
@@ -46,7 +48,7 @@ class DNA:
 
     def translate(self):
         """Translates to protein"""
-        _codon_table = DNA._read_codon_table(self)
+        _codon_table = codon_table.codon_table
         _stop_codons = "TAA TGA TAG".split()
         _protein_seq = []
         _start = self.seq.find("ATG")
@@ -65,23 +67,10 @@ class DNA:
         return "".join(_protein_seq) + ", no stop codon found"
 
 
-    def _read_codon_table(self):
-        """Reads the codon table"""
-        _codon_table = {}
-        for _line in open('helper/codon_table.txt'):
-            _line = _line.strip()
-            _line = _line.split()
-            _aa = _line[1]
-            _codons = _line[2:]
-            for _codon in _codons:
-                _codon_table.update({_codon:_aa})
-        return _codon_table
-
-
 
 def main():
     """Testing module"""
-    seq_obj = DNA("atcatcatccccccccccccctaccc")
+    seq_obj = DNA("atcatgatccccccccccccctaccc")
     #print(dir(seq_obj))
     valid_dna = seq_obj.is_valid_dna()
     print(valid_dna)
