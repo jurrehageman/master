@@ -15,9 +15,9 @@ app.config['dbconfig'] = {'host': '127.0.0.1',
 def log_request(req, res):
     with UseDatabase (app.config['dbconfig']) as cursor:
         _SQL = """insert into log
-                (dna, ip, browser_string, dna_up, dna_rev, dna_comp, dna_rev_comp, rna)
+                (dna, ip, browser_string, dna_up, dna_rev, dna_comp, dna_rev_comp, rna, protein)
                 values
-                (%s, %s, %s, %s, %s, %s, %s, %s)"""
+                (%s, %s, %s, %s, %s, %s, %s, %s, %s)"""
         cursor.execute(_SQL, (  req.form['sequence'],
                                 req.remote_addr,
                                 req.user_agent.browser,
@@ -25,7 +25,8 @@ def log_request(req, res):
                                 res['dna_rev'],
                                 res['dna_comp'],
                                 res['dna_rev_comp'],
-                                res['rna'],))
+                                res['rna'],
+                                res['protein'],))
 
 
 @app.route('/output', methods=['POST'])
@@ -33,12 +34,6 @@ def output_page():
     dna_seq = request.form['sequence'].strip()
     dna_obj = DNA(dna_seq)
     if not dna_obj.is_valid_dna():
-        results = {'dna_up': 'NA',
-                   'dna_rev': 'NA',
-                   'dna_comp': 'NA',
-                   'dna_rev_comp': 'NA',
-                   'rna': 'NA', }
-        log_request(request, results)
         return render_template('results_not_valid.html',
                                the_title='Invalid DNA sequence',
                                the_dna_up=dna_seq,)
@@ -47,11 +42,13 @@ def output_page():
     dna_comp = dna_obj.complement()
     dna_rev_comp = dna_obj.reverse_complement()
     rna = dna_obj.transcribe()
+    protein = dna_obj.translate()
     results = {'dna_up': dna_up,
                'dna_rev': dna_rev,
                'dna_comp': dna_comp,
                'dna_rev_comp': dna_rev_comp,
-               'rna': rna,}
+               'rna': rna,
+               'protein': protein}
     log_request(request, results)
     return render_template('results.html',
                            the_title='DNA manipulation results',
@@ -59,17 +56,18 @@ def output_page():
                            the_dna_rev = dna_rev,
                            the_dna_comp = dna_comp,
                            the_dna_rev_comp = dna_rev_comp,
-                           the_rna = rna,)
+                           the_rna = rna,
+                           the_protein = protein,)
 
 
 @app.route('/viewlog')
 @check_logged_in
 def view_the_log():
     with UseDatabase(app.config['dbconfig']) as cursor:
-        _SQL = """select id, ts, dna, ip, browser_string, dna_up, dna_rev, dna_comp, dna_rev_comp, rna from log"""
+        _SQL = """select id, ts, dna, ip, browser_string, dna_up, dna_rev, dna_comp, dna_rev_comp, rna, protein from log"""
         cursor.execute(_SQL)
         contents = cursor.fetchall()
-    titles = ('id', 'ts', 'Form Data', 'Remote addr', 'browser', 'DNA', 'rev', 'comp', 'rev_comp', 'rna')
+    titles = ('id', 'ts', 'Form Data', 'Remote addr', 'browser', 'DNA', 'rev', 'comp', 'rev_comp', 'rna', 'protein')
     return render_template('viewlog.html',
                            the_title='View log',
                            the_row_titles=titles,
