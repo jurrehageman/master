@@ -1,3 +1,6 @@
 This is new text
 This is another line of text
 This is YET another line of text
+This is new text
+This is another line of text
+This is YET another line of text
