@@ -1,0 +1,56 @@
+1: The basics: Getting Started Quickly
+    Environment: idle, interpreter (Python) and language (Python), namespace
+    (iteration)variable concept + assignment: list, boolean, string
+    method calls, attributes (accessed by dot notation)
+    modules: os, datetime, sys, random, time
+    Operators: =, in, 
+    Control flow: if/else/elif, for
+    Code blocks: indentation, : 
+    Functions: dir(), help(), print(), range()
+    conditions: ==, <>, <=, >=, !=
+
+Lecture 1: WERD
+Dna_modifier code gebruiken om eerst alles te leren.
+Dna reverse (slicing) en check of string dna bevat, replace T->U
+    if, for, indexing/slicing, variable assignment, string concat
+
+Lecture 2: HJUR
+2: List Data: Working with Ordered Data
+3: Structured Data: Working with Structured Data
+    complement maken en reverse complement
+    string concat, dict, append/join 
+    
+Lecture 3: WERD
+4: Code Reuse: Functions and Modules
+    functions + arguments + defaults, named arguments, modules/import
+    call functions (reverse, complement, rev_comp) with different strings, importeer eigen functie in andere module
+    
+Lecture 4: HJUR
+6: Storing and Manipulating Data: Where to Put Your Data
+    sys.argv, fileIO, file.read(), streaming, with/open
+    Eigen single fasta file en wegschrijven (file.write())
+
+CR+LF vs LF dos unix
+check met file.
+fromdos
+
+sys.argv. laar zien dat het een lijst van strings is met eerste argument scriptnaam.
+
+Lecture 5: WERD
+8: A Little Bit of Class: Abstracting Behavior and State
+    OO ontwerp, DNA_manipulate class
+
+Lecture 6: HJUR
+11: Exception Handling: What to Do When Things Go Wrong
+    with try/except, geen start/stopcodon (eigen exceptie), 
+    is_valid op _comp dict try_except (key error), 
+    
+    
+Lecture 7: HJUR
+5: Building a Webapp: Getting Real
+code can be uploaded to pythonanywhere.
+spicey problem, do a translate of a given sequence. 
+
+
+
+
