@@ -13,6 +13,7 @@ Lecture 1: WERD
 Dna_modifier code gebruiken om eerst alles te leren.
 Dna reverse (slicing) en check of string dna bevat, replace T->U
     if, for, indexing/slicing, variable assignment, string concat
+    string formatting (str.format)
 
 Lecture 2: HJUR
 2: List Data: Working with Ordered Data
@@ -22,7 +23,7 @@ Lecture 2: HJUR
     
 Lecture 3: WERD
 4: Code Reuse: Functions and Modules
-    functions + arguments + defaults, named arguments, modules/import
+    functions + arguments (keyword arguments) + defaults, named arguments, modules/import
     call functions (reverse, complement, rev_comp) with different strings, importeer eigen functie in andere module
     
 Lecture 4: HJUR
@@ -30,11 +31,11 @@ Lecture 4: HJUR
     sys.argv, fileIO, file.read(), streaming, with/open
     Eigen single fasta file en wegschrijven (file.write())
 
-CR+LF vs LF dos unix
-check met file.
-fromdos
+    CR+LF vs LF dos unix
+    check met file.
+    fromdos
 
-sys.argv. laar zien dat het een lijst van strings is met eerste argument scriptnaam.
+    sys.argv. laat zien dat het een lijst van strings is met eerste argument scriptnaam.
 
 Lecture 5: WERD
 8: A Little Bit of Class: Abstracting Behavior and State
@@ -45,8 +46,13 @@ Lecture 6: HJUR
     with try/except, geen start/stopcodon (eigen exceptie), 
     is_valid op _comp dict try_except (key error), 
     
-    
 Lecture 7: HJUR
+10: Decorators (decorator args/kwargs )
+12: Advanced Iterations (generator, comprehensions)
+    itertools module,
+
+
+BONUS Lecture : HJUR
 5: Building a Webapp: Getting Real
 code can be uploaded to pythonanywhere.
 spicey problem, do a translate of a given sequence. 
