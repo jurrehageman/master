@@ -1,0 +1,14 @@
+- H5 objects: Ronald
+- Excersices H7: Jurre
+- Proeftentamen/nakijk
+- Tentamen/nakijk
+- Hertentamen/nakijk
+- Elke student 3 toetsen.
+Toes programmeren:
+theoretisch deel, wat is een argument, scoping etc
+praktisch deel: implementatie pythagoras. 99 bottles of beer on the wall.
+
+Voor de zomervakantie les 5 en opdrachten les 7.
+
+Assesment. Fenna overleg.
+
